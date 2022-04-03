@@ -14,6 +14,7 @@ public  class UI : MonoBehaviour
     public GameObject gamePanel;
     public GameObject startPanel;
     public GameObject winPanel;
+    public GameObject counterPanel;
 
 
     public static UI _instance;
@@ -33,8 +34,11 @@ public  class UI : MonoBehaviour
         gamePanel = canvas.transform.Find("GamePanel").gameObject;
         startPanel = canvas.transform.Find("StartPanel").gameObject;
         winPanel = canvas.transform.Find("WinPanel").gameObject;
+        counterPanel = canvas.transform.Find("CounterPanel").gameObject;
         startButton = startPanel.transform.Find("StartButton").GetComponent<Button>();
         //
+        counterPanel.AddComponent<CounterViewController>();
+
         gamePanel.SetActive(false);
         startButton.onClick.AddListener(PlayGame);
     }
