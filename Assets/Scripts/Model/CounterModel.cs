@@ -6,20 +6,8 @@ using Random = UnityEngine.Random;
 
 public static class CounterModel
 {
-    private static int mCount = 0;
-
-    public static int Count
+    public static BindableProperty<int> Count = new BindableProperty<int>()
     {
-        get => mCount;
-        set
-        {
-            if (value != mCount)
-            {
-                mCount = value;
-
-                // 触发事件
-                OnCountChangedEvent.Trigger();
-            }
-        }
-    }
+        Value = 0
+    };
 }
