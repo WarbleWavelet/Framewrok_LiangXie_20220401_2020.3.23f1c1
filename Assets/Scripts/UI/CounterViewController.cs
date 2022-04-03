@@ -10,7 +10,7 @@ public class CounterViewController : MonoBehaviour
 {
     void Start()
     {
-        CounterModel.OnCountChanged += OnCountChanged;
+        OnCountChangedEvent.Register(OnCountChanged);
         //
         transform.Find("BtnAdd").GetComponent<Button>()
             .onClick.AddListener(() =>
@@ -31,12 +31,17 @@ public class CounterViewController : MonoBehaviour
             });
 
         // 表现逻辑
-        OnCountChanged(CounterModel.Count);
+        OnCountChanged();
     }
 
     // 表现逻辑
-    private void OnCountChanged(int newCount)
+    private void OnCountChanged()
+    { 
+        transform.Find("CountText").GetComponent<TextMeshProUGUI>().text = CounterModel.Count.ToString();
+    }
+
+    private void OnDestroy()
     {
-        transform.Find("CountText").GetComponent<TextMeshProUGUI>().text = newCount.ToString();
+        OnCountChangedEvent.UnRegister(OnCountChanged);
     }
 }

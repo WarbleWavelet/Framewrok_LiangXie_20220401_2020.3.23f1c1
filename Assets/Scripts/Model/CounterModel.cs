@@ -8,8 +8,6 @@ public static class CounterModel
 {
     private static int mCount = 0;
 
-    public static Action<int> OnCountChanged;
-
     public static int Count
     {
         get => mCount;
@@ -18,7 +16,9 @@ public static class CounterModel
             if (value != mCount)
             {
                 mCount = value;
-                OnCountChanged?.Invoke(value);
+
+                // 触发事件
+                OnCountChangedEvent.Trigger();
             }
         }
     }
