@@ -9,8 +9,7 @@ public class Game : MonoBehaviour
 {
     #region 字段
     GameObject enemies;
-    public   int curCount=0;
-    public  int totalCount=0;
+
 
 
     public static Game _instance;
@@ -29,8 +28,8 @@ public class Game : MonoBehaviour
     void Start()
     {
         enemies=transform.Find("Enemies").gameObject;
-        totalCount = enemies.transform.childCount;
-        for (int i = 0; i < totalCount; i++)
+
+        for (int i = 0; i < 9; i++)
         {
             enemies.transform.GetChild(i).gameObject.AddComponent<Enemy>();
         }
@@ -49,8 +48,8 @@ public class Game : MonoBehaviour
     #region 辅助
     internal void KillOneEnemy()
     {
-        totalCount--;
-        if (totalCount <= 0)
+        GameModel.KillCount++;
+        if (GameModel.KillCount >= 9)
             UI._instance.PassGame();
     }
 
