@@ -56,7 +56,8 @@ public  class UI : MonoBehaviour
     {
         startPanel.SetActive(false);
         gamePanel.SetActive(true);
-        Game._instance.OnGameStart();
+        new StartGameCommand()
+            .Execute();
 
     }
     public  void PassGame()

@@ -12,9 +12,9 @@ public class Enemy : MonoBehaviour
 
         Destroy(gameObject);
 
-        GameModel.KillCount.Value++;
-        Debug.Log(GameModel.KillCount.Value);
-        
+        new KillEnemyCommand()
+            .Execute();
+
     }
     #endregion 
 

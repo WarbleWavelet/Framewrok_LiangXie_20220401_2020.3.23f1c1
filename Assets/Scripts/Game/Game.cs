@@ -58,8 +58,8 @@ public class Game : MonoBehaviour
         // 十个全部消灭再显示通关界面
         if (killedCount >= 9)
         {
-            // 触发游戏通关事件
-            GamePassEvent.Trigger();
+            new PassGameCommand()
+                .Execute();
         }
     }
     
