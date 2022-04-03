@@ -41,8 +41,13 @@ public  class UI : MonoBehaviour
 
         gamePanel.SetActive(false);
         startButton.onClick.AddListener(PlayGame);
+        //
+        GamePassEvent.Register(PassGame);
     }
-
+    private void OnDestroy()
+    {
+        GamePassEvent.UnRegister(PassGame);
+    }
     #endregion
 
 
@@ -51,7 +56,7 @@ public  class UI : MonoBehaviour
     {
         startPanel.SetActive(false);
         gamePanel.SetActive(true);
-        Game._instance.PlayGame();
+        Game._instance.OnGameStart();
 
     }
     public  void PassGame()
