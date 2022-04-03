@@ -16,19 +16,15 @@ public class CounterViewController : MonoBehaviour
         transform.Find("BtnAdd").GetComponent<Button>()
             .onClick.AddListener(() =>
             {
-                // 交互逻辑
-                CounterModel.Count.Value++;
-
-                // 表现逻辑
+                new AddCountCommand()
+                    .Execute();
             });
 
         transform.Find("BtnSub").GetComponent<Button>()
             .onClick.AddListener(() =>
             {
-                // 交互逻辑
-                CounterModel.Count.Value--;
-
-                // 表现逻辑
+                new SubCountCommand()
+                    .Execute();
             });
 
         // 表现逻辑
