@@ -4,9 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public static class CounterModel
+public  class CounterModel:Singleton<CounterModel>
 {
-    public static BindableProperty<int> Count = new BindableProperty<int>()
+    // 需要声明一个非 Public 构造
+    private CounterModel() { }
+
+
+    public  BindableProperty<int> Count = new BindableProperty<int>()
     {
         Value = 0
     };

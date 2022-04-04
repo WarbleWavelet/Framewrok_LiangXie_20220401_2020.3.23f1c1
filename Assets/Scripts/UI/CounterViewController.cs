@@ -11,7 +11,7 @@ public class CounterViewController : MonoBehaviour
     void Start()
     {
         // 注册
-        CounterModel.Count.OnValueChanged += OnCountChanged;
+        CounterModel.Instance.Count.OnValueChanged += OnCountChanged;
         //
         transform.Find("BtnAdd").GetComponent<Button>()
             .onClick.AddListener(() =>
@@ -28,7 +28,7 @@ public class CounterViewController : MonoBehaviour
             });
 
         // 表现逻辑
-        OnCountChanged(CounterModel.Count.Value);
+        OnCountChanged(CounterModel.Instance.Count.Value);
     }
 
     // 表现逻辑
@@ -40,6 +40,6 @@ public class CounterViewController : MonoBehaviour
     private void OnDestroy()
     {
         // 注册
-        CounterModel.Count.OnValueChanged -= OnCountChanged;
+        CounterModel.Instance.Count.OnValueChanged -= OnCountChanged;
     }
 }

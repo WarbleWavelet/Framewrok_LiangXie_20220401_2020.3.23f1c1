@@ -2,6 +2,6 @@ public struct SubCountCommand : ICommand
 {
     public void Execute()
     {
-        CounterModel.Count.Value--;
+        CounterModel.Instance.Count.Value--;
     }
 }
