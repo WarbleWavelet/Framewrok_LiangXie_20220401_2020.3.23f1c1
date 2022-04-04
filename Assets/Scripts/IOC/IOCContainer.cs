@@ -5,7 +5,8 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 /// <summary>
-/// 对单例类的进行分层（谁依赖谁）
+/// 对单例类的进行分层（谁依赖谁）<para />
+/// 增加模块访问的限制<para />
 /// </summary>
 
 public class IOCContainer

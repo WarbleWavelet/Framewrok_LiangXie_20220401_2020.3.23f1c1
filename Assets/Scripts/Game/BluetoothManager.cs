@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class BluetoothManager
+public class BluetoothManager:IBluetoothManager
 {
     public void Connect()
     {
