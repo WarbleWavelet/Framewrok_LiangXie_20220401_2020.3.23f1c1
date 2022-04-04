@@ -37,7 +37,6 @@ public class Game : MonoBehaviour
         enemies.gameObject.SetActive(false);
         //
         GameStartEvent.Register(OnGameStart);
-        GameModel.KillCount.OnValueChanged += OnEnemyKilled;
     }
 
 
@@ -46,22 +45,10 @@ public class Game : MonoBehaviour
     private void OnDestroy()
     {
         GameStartEvent.UnRegister(OnGameStart);
-        GameModel.KillCount.OnValueChanged -= OnEnemyKilled;
     }
     #endregion
 
     #region 辅助
-
-    private void OnEnemyKilled(int killedCount)
-    {
-
-        // 十个全部消灭再显示通关界面
-        if (killedCount >= 9)
-        {
-            new PassGameCommand()
-                .Execute();
-        }
-    }
     
 
     public void OnGameStart()
