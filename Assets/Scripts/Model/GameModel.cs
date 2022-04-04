@@ -6,9 +6,8 @@ using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 
-public class GameModel : Singleton<GameModel>
+public class GameModel
 {
-    private GameModel()  {}  
     public  BindableProperty<int> KillCount = new BindableProperty<int>()
     {
         Value = 0

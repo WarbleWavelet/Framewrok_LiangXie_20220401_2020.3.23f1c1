@@ -28,7 +28,7 @@ public class EditorCounterApp : EditorWindow
         }
 
         //  由于实时刷新 所以直接就就渲染数据即可
-        GUILayout.Label(CounterModel.Instance.Count.Value.ToString());
+        GUILayout.Label(CounterApp.Get<CounterModel>().Count.Value.ToString());
 
         if (GUILayout.Button("-"))
         {

@@ -8,10 +8,14 @@ using Random = UnityEngine.Random;
 
 public class CounterViewController : MonoBehaviour
 {
+    private CounterModel mCounterModel;
+
     void Start()
     {
+        // 获取
+        mCounterModel = CounterApp.Get<CounterModel>();
         // 注册
-        CounterModel.Instance.Count.OnValueChanged += OnCountChanged;
+        mCounterModel.Count.OnValueChanged += OnCountChanged;
         //
         transform.Find("BtnAdd").GetComponent<Button>()
             .onClick.AddListener(() =>
@@ -28,7 +32,7 @@ public class CounterViewController : MonoBehaviour
             });
 
         // 表现逻辑
-        OnCountChanged(CounterModel.Instance.Count.Value);
+        OnCountChanged(mCounterModel.Count.Value);
     }
 
     // 表现逻辑
@@ -40,6 +44,6 @@ public class CounterViewController : MonoBehaviour
     private void OnDestroy()
     {
         // 注册
-        CounterModel.Instance.Count.OnValueChanged -= OnCountChanged;
+        mCounterModel.Count.OnValueChanged -= OnCountChanged;
     }
 }

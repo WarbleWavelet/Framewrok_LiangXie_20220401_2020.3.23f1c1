@@ -7,9 +7,10 @@ public struct KillEnemyCommand : ICommand
 {
     public void Execute()
     {
-        GameModel.Instance.KillCount.Value++;
+        var gameModel = PointGame.Get<GameModel>();
+        gameModel.KillCount.Value++;
 
-        if (GameModel.Instance.KillCount.Value >=9)
+        if (gameModel.KillCount.Value >=9)
         {
             GamePassEvent.Trigger();
         }
