@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -15,6 +16,7 @@ public  class UI : MonoBehaviour
     public GameObject startPanel;
     public GameObject winPanel;
     public GameObject counterPanel;
+    public GameObject IOCPanel;
 
 
     public static UI _instance;
@@ -35,10 +37,12 @@ public  class UI : MonoBehaviour
         startPanel = canvas.transform.Find("StartPanel").gameObject;
         winPanel = canvas.transform.Find("WinPanel").gameObject;
         counterPanel = canvas.transform.Find("CounterPanel").gameObject;
+        IOCPanel = canvas.transform.Find("BluetoothPanel").gameObject;
         startButton = startPanel.transform.Find("StartButton").GetComponent<Button>();
         //
         counterPanel.AddComponent<CounterViewController>();
-
+        IOCPanel.AddComponent<IOCExample>();
+        //
         gamePanel.SetActive(false);
         startButton.onClick.AddListener(PlayGame);
         //
