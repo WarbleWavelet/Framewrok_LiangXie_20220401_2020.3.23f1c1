@@ -8,12 +8,12 @@ using Random = UnityEngine.Random;
 
 public class CounterViewController : MonoBehaviour
 {
-    private CounterModel mCounterModel;
+    private ICounterModel mCounterModel;
 
     void Start()
     {
-        // 获取
-        mCounterModel = CounterApp.Get<CounterModel>();
+        // 通过接口获取
+        mCounterModel = CounterApp.Get<ICounterModel>();
         // 注册
         mCounterModel.Count.OnValueChanged += OnCountChanged;
         //

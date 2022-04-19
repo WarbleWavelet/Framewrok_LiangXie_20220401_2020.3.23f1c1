@@ -17,6 +17,7 @@ public  class UI : MonoBehaviour
     public GameObject winPanel;
     public GameObject counterPanel;
     public GameObject IOCPanel;
+    public GameObject storagePanel;
 
 
     public static UI _instance;
@@ -38,10 +39,15 @@ public  class UI : MonoBehaviour
         winPanel = canvas.transform.Find("WinPanel").gameObject;
         counterPanel = canvas.transform.Find("CounterPanel").gameObject;
         IOCPanel = canvas.transform.Find("BluetoothPanel").gameObject;
+        storagePanel = canvas.transform.Find("StoragePanel").gameObject;
+        //
         startButton = startPanel.transform.Find("StartButton").GetComponent<Button>();
+        
         //
         counterPanel.AddComponent<CounterViewController>();
         IOCPanel.AddComponent<IOCExample>();
+        storagePanel.AddComponent<DIPExample>();
+
         //
         gamePanel.SetActive(false);
         startButton.onClick.AddListener(PlayGame);

@@ -4,7 +4,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 /// <summary>
-/// 架构
+/// 对IOC容器的操作
 /// </summary>
 /// <typeparam name="T"></typeparam>
 public abstract class Architecture<T> where T : Architecture<T>, new()
@@ -28,14 +28,22 @@ public abstract class Architecture<T> where T : Architecture<T>, new()
     // 留给子类注册模块
     protected abstract void Init();
 
-    // 提供一个注册模块的 API
+    /// <summary>
+    /// 增
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="instance"></param>
     public void Register<T>(T instance)
     {
         MakeSureArchitecture();
         mArchitecture.mContainer.Register<T>(instance);
     }
 
-    // 提供一个获取模块的 API
+    /// <summary>
+    /// 查
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
     public static T Get<T>() where T : class
     {
         MakeSureArchitecture();

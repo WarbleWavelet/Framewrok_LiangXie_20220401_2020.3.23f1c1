@@ -4,7 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
  
-
+/// <summary>
+/// 数据驱动（HP变了去回调下Slider）
+/// </summary>
+/// <typeparam name="T"></typeparam>
 public class BindableProperty<T> where T : IEquatable<T>
 {
     private T mValue;
